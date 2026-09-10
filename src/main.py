@@ -1,4 +1,5 @@
-from models import Case, Person, StolenItem, TimelineEvent
+from models import Case, Person, StolenItem, TimelineEvent, Evidence
+from evidence import analyze_evidence
 
 
 # Create the stolen item
@@ -19,13 +20,24 @@ event = TimelineEvent(
     description="Arun entered the building"
 )
 
+# Create an evidence object
+evidence = Evidence(
+    evidence_id="E001",
+    description="Security camera shows Arun entering the building",
+    source="Security Camera"
+)
+
 # Create the investigation case
 case = Case(
     case_id="CASE-001",
     stolen_item=item,
     people=[arun],
-    timeline=[event]
+    timeline=[event],
+    evidence=[evidence]
 )
 
 # Display the case
 print(case)
+
+# Analyze the evidence
+analyze_evidence(evidence)

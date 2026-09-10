@@ -18,6 +18,13 @@ class StolenItem:
     name: str
     value: float
 
+@dataclass
+class Evidence:
+    evidence_id: str
+    description: str
+    source: str
+
+  
 
 @dataclass
 class Case:
@@ -25,3 +32,5 @@ class Case:
     stolen_item: StolenItem
     people: list[Person]
     timeline: list[TimelineEvent]
+    evidence: list[Evidence]
+    
